@@ -1,9 +1,11 @@
 import styled from 'styled-components'
+import variaveis from '../../styles/variaveis'
 
 export const Aside = styled.aside`
   padding: 16px;
-  background-color: #0d0b0c;
+  background-color: ${variaveis.corNivel5};
   height: 100vh;
+  border-right: solid 2px ${variaveis.corNivel1};
 `
 export const Filtros = styled.div`
   margin-top: 16px;
@@ -14,10 +16,10 @@ export const Filtros = styled.div`
 export const CampoBuscar = styled.input`
   border-radius: 8px;
   padding: 8px;
-  background-color: #f2f2f2;
+  background-color: ${variaveis.corNivel1};
   font-weight: bold;
-  color: #0d0b0c;
-  border: 2px solid #593d2d;
+  color: ${variaveis.corNivel5};
+  border: 2px solid ${variaveis.corNivel3};
   width: 100%;
   outline: none;
 `

@@ -1,13 +1,16 @@
 import styled from 'styled-components'
+import variaveis from '../../styles/variaveis'
 import { Props } from '.'
 
 type PropsSemLegECont = Omit<Props, 'contador' | 'legenda'>
 
 export const Card = styled.div<PropsSemLegECont>`
   padding: 8px;
-  border: 2px solid ${(props) => (props.ativo ? '#A67968' : '#593d2d')};
-  background-color: ${(props) => (props.ativo ? '#593D2D' : '#402820')};
-  color: ${(props) => (props.ativo ? '#fff' : '#f2f2f2')};
+  border: 2px solid
+    ${(props) => (props.ativo ? variaveis.corNivel2 : variaveis.corNivel3)};
+  background-color: ${(props) =>
+    props.ativo ? variaveis.corNivel3 : variaveis.corNivel4};
+  color: ${(props) => (props.ativo ? '#fff' : variaveis.corNivel1)};
   margin-bottom: 8px;
   border-radius: 8px;
   width: 60%;
@@ -16,9 +19,8 @@ export const Card = styled.div<PropsSemLegECont>`
   justify-content: space-around;
   cursor: pointer;
   &:hover {
-    background-color: #593d2d;
-    border-color: #402520;
-    //opacity: 0.9;
+    background-color: ${variaveis.corNivel3};
+    border-color: ${variaveis.corNivel4};
   }
 `
 
