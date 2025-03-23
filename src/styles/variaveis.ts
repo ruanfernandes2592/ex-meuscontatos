@@ -5,10 +5,9 @@ export default {
   corNivel4: '#262626',
   corNivel5: '#101218',
   azul: '#022840',
-  vermelho: '#730202',
-  verde: '#2D5731',
-  amarelo: '#f0c11a',
-  amarelo2: '#e1a32a'
+  vermelho: '#e1002d',
+  verde: '#2ba640',
+  amarelo: '#f0c11a'
 }
 
 /*export default {
@@ -21,5 +20,4 @@ export default {
   vermelho: '#730202',
   verde: '#2D5731',
   amarelo: '#f0c11a',
-  amarelo2: '#e1a32a'
 }*/

@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
+import * as enums from '../../utils/enums/Contato'
 
 type TagProps = {
-  categoria?: string
+  categoria?: enums.Categoria
 }
 
 function retornaCorDeFundo(props: TagProps): string {
   if ('categoria' in props) {
-    if (props.categoria === 'favoritos') return variaveis.amarelo2
-    if (props.categoria === 'familia') return variaveis.verde
-    if (props.categoria === 'trabalho') return variaveis.vermelho
+    if (props.categoria === enums.Categoria.FAVORITOS) return variaveis.amarelo
+    if (props.categoria === enums.Categoria.FAMILIA) return variaveis.verde
+    if (props.categoria === enums.Categoria.TRABALHO) return variaveis.vermelho
   }
   return '#ccc'
 }
@@ -57,7 +58,7 @@ export const Botao = styled.button`
   padding: 8px 12px;
   border: none;
   cursor: pointer;
-  background-color: ${variaveis.azul};
+  background-color: ${variaveis.corNivel4};
   border-radius: 8px;
   margin-right: 8px;
 `
