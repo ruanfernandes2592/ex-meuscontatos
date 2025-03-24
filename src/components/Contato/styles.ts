@@ -21,11 +21,14 @@ export const Card = styled.div`
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
+  max-width: 512px;
+  min-width: 280px;
 `
 export const Nome = styled.h2`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
+  display: block;
 `
 export const Tag = styled.span<TagProps>`
   padding: 4px 18px;
@@ -35,15 +38,22 @@ export const Tag = styled.span<TagProps>`
   background-color: ${(props) => retornaCorDeFundo(props)};
   border-radius: 8px;
 `
+export const Opcoes = styled.option`
+  background-color: ${variaveis.corNivel4};
+`
+
 export const Numero = styled.h3`
   color: #8b8b8b;
   font-size: 14px;
   line-height: 24px;
   font-family: 'Roboto Mono', monospace;
   margin-top: 8px;
+  display: block;
 `
 export const Email = styled(Numero)`
   margin: 0;
+  display: block;
+  width: 256px;
 `
 
 export const BarraDeAcoes = styled.div`

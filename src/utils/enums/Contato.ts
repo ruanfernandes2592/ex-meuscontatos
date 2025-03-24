@@ -1,5 +1,6 @@
 export enum Categoria {
   TRABALHO = 'trabalho',
   FAMILIA = 'familia',
-  FAVORITOS = 'favoritos'
+  FAVORITOS = 'favoritos',
+  OUTROS = 'outros'
 }
