@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
-import { Props } from '.'
 
-type PropsSemLegECont = Omit<Props, 'contador' | 'legenda'>
+type Props = {
+  ativo: boolean
+}
 
-export const Card = styled.div<PropsSemLegECont>`
+export const Card = styled.div<Props>`
   padding: 8px;
   border: 2px solid
     ${(props) => (props.ativo ? variaveis.corNivel2 : variaveis.corNivel3)};

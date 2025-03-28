@@ -1,25 +1,50 @@
 import { useSelector } from 'react-redux'
 
 import Contato from '../../components/Contato'
-import { MainContainer } from './styles'
+import { MainContainer, Titulo } from '../../styles/index'
 import { RootReducer } from '../../store'
 
 const ListaDeContatos = () => {
   const { itens } = useSelector((state: RootReducer) => state.contatos)
-  const { termo } = useSelector((state: RootReducer) => state.filtro)
+  const { termo, criterio, valor } = useSelector(
+    (state: RootReducer) => state.filtro
+  )
 
   const filtraContatos = () => {
-    return itens.filter(
-      (c) => c.nome.toLowerCase().search(termo.toLowerCase()) >= 0
-      //(c) => c.numero.search(termo) >= 0
-    )
+    let contatosFiltrados = itens
+    if (termo !== undefined) {
+      contatosFiltrados = contatosFiltrados.filter(
+        (c) => c.nome.toLowerCase().search(termo.toLowerCase()) >= 0
+        //(c) => c.numero.search(termo) >= 0
+      )
+      if (criterio === 'categoria') {
+        contatosFiltrados = contatosFiltrados.filter(
+          (c) => c.categoria === valor
+        )
+      }
+      return contatosFiltrados
+    } else {
+      return itens
+    }
+  }
+
+  const exibeMsg = () => {
+    if (criterio === 'todos') {
+      const msg = `${
+        filtraContatos().length
+      } Contato(s) marcado(s) como Todos: "${termo}"`
+      return msg
+    } else if (criterio === 'categoria' && valor !== undefined) {
+      const msg = `${filtraContatos().length} Contato(s) marcado(s) como ${
+        valor.charAt(0).toUpperCase() + valor.slice(1).toLowerCase()
+      }: "${termo}"`
+      return msg
+    }
   }
 
   return (
     <MainContainer>
-      <p>
-        2 contatos marcados como &quot;categoria&quot; e &quot;{termo}&quot;
-      </p>
+      <Titulo as="p">{exibeMsg()}</Titulo>
       <ul>
         {filtraContatos().map((c) => (
           <li key={c.nome}>

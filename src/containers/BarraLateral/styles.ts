@@ -13,13 +13,3 @@ export const Filtros = styled.div`
   flex-direction: column;
   align-items: center;
 `
-export const CampoBuscar = styled.input`
-  border-radius: 8px;
-  padding: 8px;
-  background-color: ${variaveis.corNivel1};
-  font-weight: bold;
-  color: ${variaveis.corNivel5};
-  border: 2px solid ${variaveis.corNivel3};
-  width: 100%;
-  outline: none;
-`

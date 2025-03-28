@@ -5,6 +5,7 @@ import * as S from './styles'
 import * as enums from '../../utils/enums/Contato'
 import { remover, editar } from '../../store/reducers/contatos'
 import ContatoClass from '../../models/Contato'
+import { Campo, BotaoSalvar } from '../../styles'
 
 type Props = ContatoClass
 
@@ -50,13 +51,14 @@ const Contato = ({
       {estaEditando ? (
         <>
           <S.Nome
-            as={'input'}
-            style={{ borderRadius: '8px', paddingLeft: '4px' }}
+            as={Campo}
+            style={{ color: '#222' }}
             value={nome}
             onChange={(e) => setNome(e.target.value)} // Vai permitir editar o input
           ></S.Nome>
           <S.Tag
             as={'select'}
+            style={{ color: '#f2f2f2' }}
             categoria={categoria}
             value={categoria}
             onChange={(e) => setCategoria(e.target.value as enums.Categoria)}
@@ -68,19 +70,17 @@ const Contato = ({
             {categoria}
           </S.Tag>
           <S.Numero
-            as={'input'}
-            style={{ borderRadius: '8px', paddingLeft: '4px' }}
+            as={Campo}
             value={numero}
             onChange={(e) => setNumero(e.target.value)}
           ></S.Numero>
           <S.Email
-            as={'input'}
-            style={{ borderRadius: '8px', paddingLeft: '4px' }}
+            as={Campo}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></S.Email>
           <S.BarraDeAcoes>
-            <S.BotaoSalvar
+            <BotaoSalvar
               onClick={() => {
                 dispatch(
                   editar({
@@ -95,7 +95,7 @@ const Contato = ({
               }}
             >
               Salvar
-            </S.BotaoSalvar>
+            </BotaoSalvar>
             <S.BotaoCancelarRemover onClick={cancelarEdicao}>
               Cancelar
             </S.BotaoCancelarRemover>

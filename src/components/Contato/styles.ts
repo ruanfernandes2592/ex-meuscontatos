@@ -16,8 +16,8 @@ function retornaCorDeFundo(props: TagProps): string {
 }
 
 export const Card = styled.div`
-  background-color: ${variaveis.corNivel1};
-  box-shadow: 4px 6px 8px rgba(242, 242, 242, 0.5);
+  background-color: ${variaveis.corNivel4};
+  box-shadow: 4px 6px 8px rgba(142, 142, 142, 0.3);
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
@@ -29,14 +29,17 @@ export const Nome = styled.h2`
   font-weight: bold;
   margin-bottom: 8px;
   display: block;
+  text-transform: capitalize;
+  color: ${variaveis.corNivel1};
 `
 export const Tag = styled.span<TagProps>`
   padding: 4px 18px;
   font-size: 10px;
   font-weight: bold;
-  color: #fff;
+  color: ${variaveis.corNivel5};
   background-color: ${(props) => retornaCorDeFundo(props)};
   border-radius: 8px;
+  text-transform: capitalize;
 `
 export const Opcoes = styled.option`
   background-color: ${variaveis.corNivel4};
@@ -54,11 +57,13 @@ export const Email = styled(Numero)`
   margin: 0;
   display: block;
   width: 256px;
+  text-transform: lowercase;
 `
 
 export const BarraDeAcoes = styled.div`
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid ${variaveis.corNivel3};
   padding-top: 16px;
+  margin-top: 4px;
 `
 
 export const Botao = styled.button`
@@ -68,13 +73,11 @@ export const Botao = styled.button`
   padding: 8px 12px;
   border: none;
   cursor: pointer;
-  background-color: ${variaveis.corNivel4};
+  background-color: ${variaveis.corNivel3};
   border-radius: 8px;
   margin-right: 8px;
 `
-export const BotaoSalvar = styled(Botao)`
-  background-color: ${variaveis.verde};
-`
+
 export const BotaoCancelarRemover = styled(Botao)`
   background-color: ${variaveis.vermelho};
 `
