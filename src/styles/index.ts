@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import variaveis from '../styles/variaveis'
-import { Botao } from '../components/Contato/styles'
 
 const EstiloGlobal = createGlobalStyle`
   * {
@@ -37,6 +36,17 @@ export const Campo = styled.input`
   border: 2px solid ${variaveis.corNivel3};
   width: 100%;
   outline: none;
+`
+export const Botao = styled.button`
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background-color: ${variaveis.corNivel3};
+  border-radius: 8px;
+  margin-right: 8px;
 `
 export const BotaoSalvar = styled(Botao)`
   background-color: ${variaveis.verde};

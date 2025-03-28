@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 import * as enums from '../../utils/enums/Contato'
+import { Botao } from '../../styles'
 
 type TagProps = {
   categoria?: enums.Categoria
@@ -64,18 +65,6 @@ export const BarraDeAcoes = styled.div`
   border-top: 1px solid ${variaveis.corNivel3};
   padding-top: 16px;
   margin-top: 4px;
-`
-
-export const Botao = styled.button`
-  font-size: 12px;
-  font-weight: bold;
-  color: #fff;
-  padding: 8px 12px;
-  border: none;
-  cursor: pointer;
-  background-color: ${variaveis.corNivel3};
-  border-radius: 8px;
-  margin-right: 8px;
 `
 
 export const BotaoCancelarRemover = styled(Botao)`

@@ -5,7 +5,7 @@ import * as S from './styles'
 import * as enums from '../../utils/enums/Contato'
 import { remover, editar } from '../../store/reducers/contatos'
 import ContatoClass from '../../models/Contato'
-import { Campo, BotaoSalvar } from '../../styles'
+import { Campo, BotaoSalvar, Botao } from '../../styles'
 
 type Props = ContatoClass
 
@@ -108,7 +108,7 @@ const Contato = ({
           <S.Numero>{numero}</S.Numero>
           <S.Email>{email}</S.Email>
           <S.BarraDeAcoes></S.BarraDeAcoes>
-          <S.Botao onClick={() => setEstaEditando(true)}>Editar</S.Botao>
+          <Botao onClick={() => setEstaEditando(true)}>Editar</Botao>
           <S.BotaoCancelarRemover onClick={() => dispatch(remover(id))}>
             Remover
           </S.BotaoCancelarRemover>

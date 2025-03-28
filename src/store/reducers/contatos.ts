@@ -93,26 +93,33 @@ const contatosSlice = createSlice({
       const indexDoContato = state.itens.findIndex(
         (c) => c.id === action.payload.id // Vai identificar em qual contato o usuario realizou a ação de clicar em aditar
       )
-
       if (indexDoContato >= 0) {
         state.itens[indexDoContato] = action.payload // Vai manter as alterações realizadas
       }
     },
-    cadastrar: (state, action: PayloadAction<Contato>) => {
+    cadastrar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {
       //Vai buscar um contato onde o nome seja igual o nome digitado no input
       const nomeJaExiste = state.itens.find(
         (t) => t.nome.toLowerCase() === action.payload.nome.toLowerCase()
       )
-      const numeroJaExiste = state.itens.find(
-        (t) => t.numero.toLowerCase() === action.payload.numero.toLowerCase()
-      )
-
-      if (nomeJaExiste) {
-        alert('Já existe um contato com este nome')
-      } else if (numeroJaExiste) {
-        alert('Já existe um contato com este número')
+      if (nomeJaExiste || action.payload.nome.length < 1) {
+        alert('Já existe um contato com este nome ou nome invalido')
       } else {
-        state.itens.push(action.payload)
+        //Vai buscar um contato onde o número seja igual o número digitado no input
+        const numeroJaExiste = state.itens.find(
+          (t) => t.numero === action.payload.numero
+        )
+        if (numeroJaExiste || action.payload.numero.length < 10) {
+          alert('Já existe um contato com este número ou número invalido')
+        } else {
+          const ultimoContato = state.itens[state.itens.length - 1]
+
+          const contatoNovo = {
+            ...action.payload,
+            id: ultimoContato ? ultimoContato.id + 1 : 1
+          }
+          state.itens.push(contatoNovo)
+        }
       }
     }
   }
